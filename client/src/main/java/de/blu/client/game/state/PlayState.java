@@ -1,19 +1,11 @@
 package de.blu.client.game.state;
 
-import de.blu.client.frame.sprite.SpriteSheet;
 import de.blu.client.game.Game;
 import de.blu.client.game.GameState;
-import lombok.Getter;
 
 import java.awt.*;
 
 public class PlayState extends GameState {
-
-    @Getter
-    private SpriteSheet spriteSheet;
-
-    @Getter
-    private int id = -1;
 
     public PlayState(Game game) {
         super(game);
@@ -25,11 +17,11 @@ public class PlayState extends GameState {
 
     @Override
     public void update() {
-        this.spriteSheet = this.getGame().getGameFrame().getGameCanvas().getCharacterSpriteSheet();
     }
 
     @Override
     public void render(Graphics2D graphics2D) {
+        /*
         graphics2D.clearRect(0, 0, this.getGame().getGameFrame().getWidth(), this.getGame().getGameFrame().getHeight());
         SpriteSheet spriteSheet = this.getGame().getGameFrame().getGameCanvas().getWorldSpriteSheet();
         for (int i = 0; i < 25; i++) {
@@ -58,11 +50,15 @@ public class PlayState extends GameState {
 
 
         graphics2D.drawImage(this.getSpriteSheet().getSprite(this.getId()).getScaledInstance(this.getSpriteSheet().getSpriteSizeX() * 2, this.getSpriteSheet().getSpriteSizeY() * 2, Image.SCALE_FAST), 200, 200, null);
+        graphics2D.drawImage(this.getSpriteSheet().getSprite(this.getId() + 4).getScaledInstance(this.getSpriteSheet().getSpriteSizeX() * 2, this.getSpriteSheet().getSpriteSizeY() * 2, Image.SCALE_FAST), 250, 200, null);
+        graphics2D.drawImage(this.getSpriteSheet().getSprite(this.getId() + 8).getScaledInstance(this.getSpriteSheet().getSpriteSizeX() * 2, this.getSpriteSheet().getSpriteSizeY() * 2, Image.SCALE_FAST), 300, 200, null);
+        graphics2D.drawImage(this.getSpriteSheet().getSprite(this.getId() + 12).getScaledInstance(this.getSpriteSheet().getSpriteSizeX() * 2, this.getSpriteSheet().getSpriteSizeY() * 2, Image.SCALE_FAST), 350, 200, null);
 
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        */
     }
 }

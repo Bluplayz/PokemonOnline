@@ -7,8 +7,6 @@ import lombok.Getter;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class GameCanvas extends Canvas implements Runnable {
 
@@ -35,27 +33,29 @@ public class GameCanvas extends Canvas implements Runnable {
         this.gameFrame = gameFrame;
 
         this.setPreferredSize(new Dimension(GameCanvas.FRAME_SIZE_X, GameCanvas.FRAME_SIZE_Y));
-//        this.setBackground(new Color(146, 189, 221));
         this.setFocusable(true);
         this.requestFocus();
 
         this.addKeyListener(this.getGameFrame().getGameKeyListener());
 
-        this.worldSpriteSheet = new SpriteSheet("tileset.png", 16, 16);
-        this.characterSpriteSheet = new SpriteSheet("character.png", 16, 24);
+        this.worldSpriteSheet = new SpriteSheet("tilesets/tileset.png", 16, 16);
+        this.characterSpriteSheet = new SpriteSheet("sprites/character.png", 16, 24);
 
         //this.getGameFrame().getGame().changeGameState(new PlayState(this.getGameFrame().getGame()));
 //        this.getGameFrame().getGame().setWorld(new World("test", 16));
 
         // Force Ingame while debugging
         this.getGameFrame().getGame().changeGameState(new PlayState(this.getGameFrame().getGame()));
+       /*
         this.getGameFrame().getGame().getGameFrame().setVisible(false);
+
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
                 GameCanvas.this.getGameFrame().getGame().getGameFrame().setVisible(true);
             }
         }, 100);
+        */
     }
 
     @Override
